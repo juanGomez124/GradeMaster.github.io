@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Master</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.webp">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-image: url('fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .section-bg {
+            background-color: #f3f4f6;
+        }
+        .photo-gallery img {
+            transition: transform 0.3s ease-in-out;
+        }
+        .photo-gallery img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navegación -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0">
+                        <img class="h-10 w-10" src="logo.webp" alt="Logo">
+                    </a>
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#quienes-somos" class="text-gray-700 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Quiénes Somos</a>
+                        <a href="index.html" class="text-gray-700 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Calificaciones</a>
+                        <a href="blog.html" class="text-gray-700 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Blog</a>
+                        <a href="#contacto" class="text-gray-700 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Contacto</a>
+                    </div>
+                </div>
+                <div id="login-section" class="relative">
+                    <!-- User Menu -->
+                    <div id="user-menu-btn" class="cursor-pointer flex items-center space-x-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-5 py-2 rounded-full hover:from-indigo-600 hover:to-purple-700 transition duration-300 hidden">
+                        <img src="149071.png" class="w-8 h-8 rounded-full" alt="User Avatar">
+                        <span id="username-display">admin</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    
+                    <!-- Dropdown Menu -->
+                    <div id="user-dropdown" class="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl z-50 hidden overflow-hidden">
+                        <div class="px-4 py-3 bg-gray-50 border-b">
+                            <p class="text-sm font-medium text-gray-800">Admin Usuario</p>
+                            <p class="text-xs text-gray-500 truncate">admin@example.com</p>
+                        </div>
+                        <div class="py-1">
+                            <a href="perfil.html" id="profile-link" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition duration-150 ease-in-out">
+                                <i class="fas fa-user mr-2"></i>Perfil
+                            </a>
+                            <a href="configuracion.html" id="settings-link" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition duration-150 ease-in-out">
+                                <i class="fas fa-cog mr-2"></i>Configuración
+                            </a>
+                            <a href="blog.html" id="logout-link" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 transition duration-150 ease-in-out">
+                                <i class="fas fa-sign-out-alt mr-2"></i>Cerrar Sesión
+                            </a>
+                        </div>
+                    </div>
+                
+                    <!-- Login Button -->
+                    <button id="login-modal-btn" class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-full hover:from-indigo-600 hover:to-purple-700 transition duration-300">
+                        Iniciar Sesión
+                    </button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg text-black py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Grade Master</h1>
+            <p class="text-xl md:text-2xl mb-8">Tu plataforma integral para gestión académica y aprendizaje</p>
+            <div class="space-x-4">
+                <a href="index.html" class="bg-black text-purple-600 px-6 py-3 rounded-md hover:bg-gray-100 transition duration-300">
+                    Gestionar Calificaciones
+                </a>
+                <a href="blog.html" class="bg-black text-purple-600 px-6 py-3 rounded-md hover:bg-white hover:text-purple-600 transition duration-300">
+                    Explorar Blog
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- Sección de Fotos -->
+    <section id="galeria" class="section-bg py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-8">Galería de Fotos</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="photo-gallery relative">
+                    <img src="iStock-1141509628.jpeg" alt="Foto 1" class="rounded-lg shadow-lg">
+                    <div class="photo-caption">Estudio colaborativo</div>
+                </div>
+                <div class="photo-gallery relative">
+                    <img src="bigstock-Top-View-Of-Young-Students-Wit-204873577.jpeg" alt="Foto 2" class="rounded-lg shadow-lg">
+                    <div class="photo-caption">Trabajo organizado y reflexivo</div>
+                </div>
+                <div class="photo-gallery relative">
+                    <img src="G63KXHGBRJGMPFF5PNKCRWMB7E.avif" alt="Foto 3" class="rounded-lg shadow-lg">
+                    <div class="photo-caption">Estudio en entornos académicos</div>
+                </div>
+                <div class="photo-gallery relative">
+                    <img src="images.jpeg" alt="Foto 4" class="rounded-lg shadow-lg">
+                    <div class="photo-caption">Dinámica de trabajo en grupo</div>
+                </div>
+                <div class="photo-gallery relative">
+                    <img src="images (1).jpeg" alt="Foto 5" class="rounded-lg shadow-lg">
+                    <div class="photo-caption">Asistencia y tutoría en equipo</div>
+                </div>
+                <div class="photo-gallery relative">
+                    <img src="ORJ3FGUF2RGU5BDVQTTWQ7XIRI.avif" alt="Foto 6" class="rounded-lg shadow-lg">
+                    <div class="photo-caption">Uso de la tecnología en el aprendizaje</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-8">Contáctanos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Información de Contacto</h3>
+                    <p><i class="fas fa-phone-alt mr-2"></i> Teléfono: +57 321 123-4567</p>
+                    <p><i class="fas fa-envelope mr-2"></i> Email: soporte@grademaster.com</p>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i> Dirección:  Medellin, Colombia</p>
+                    <p><i class="fas fa-clock mr-2"></i>Horario de Atención: lunes a viernes, de 9:00 a.m. a 6:00 p.m.</p>
+                </div>
+                <section id="contacto" class="py-20 px-6">
+                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-xl">
+                        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Formulario de Contacto</h2>
+                        <form id="contact-form" onsubmit="exportContactToTxt(event)">
+                            <div class="mb-4">
+                                <label for="nombre" class="block text-gray-700 font-medium mb-2">Nombre:</label>
+                                <input type="text" id="nombre" name="nombre" class="w-full p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email:</label>
+                                <input type="email" id="email" name="email" class="w-full p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="mensaje" class="block text-gray-700 font-medium mb-2">Mensaje:</label>
+                                <textarea id="mensaje" name="mensaje" rows="4" class="w-full p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-black" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-black text-purple-600 py-3 rounded-lg shadow-lg hover:bg-indigo-700 transition duration-300">Enviar</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-xl w-96">
+            <h2 class="text-2xl font-bold mb-6 text-center">Iniciar Sesión</h2>
+            <form id="login-form">
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-700 mb-2">Nombre de usuario</label>
+                    <input type="text" id="username" name="username" class="w-full px-3 py-2 border rounded-md" value="admin" required>
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="block text-gray-700 mb-2">Contraseña</label>
+                    <input type="password" id="password" name="password" class="w-full px-3 py-2 border rounded-md" value="admin" required>
+                </div>
+                <button type="submit" class="w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition duration-300">
+                    Iniciar Sesión
+                </button>
+            </form>
+        </div>
+    </div>
+
+<script src="inico.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Master</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.webp">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+        .profile-card {
+            transition: transform 0.3s ease-in-out;
+        }
+        .profile-card:hover {
+            transform: scale(1.05);
+        }
+        .button {
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="container mx-auto px-4 py-10">
+        <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden profile-card">
+            <!-- Foto de Perfil -->
+            <div class="relative">
+                <img class="w-full h-56 object-cover" src="149071.png" alt="Foto de Perfil">
+                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-3 text-center">
+                    <h1 class="text-xl font-semibold">admin</h1>
+                    <p>Desarrollador de Software</p>
+                </div>
+            </div>
+            
+            <!-- Información de Perfil -->
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Información Básica</h2>
+                <ul class="space-y-2">
+                    <li><strong>Email:</strong> soporte@grademaster.com</li>
+                    <li><strong>Ubicación:</strong> Medellin, Colombia</li>
+                    <li><strong>Teléfono:</strong> +57 321 123-4567</li>
+                </ul>
+                <button id="showMoreBtn" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition duration-300">Mostrar Más</button>
+            </div>
+
+            <!-- Detalles Adicionales (inicialmente ocultos) -->
+            <div id="moreDetails" class="p-6 hidden">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Sobre mí</h3>
+                <p class="text-gray-700">Soy un desarrollador de software apasionado por la creación de aplicaciones interactivas y la mejora continua. Me interesa aprender sobre nuevas tecnologías, la gestión de calidad del software y cómo optimizar procesos técnicos. Actualmente estoy trabajando en el desarrollo de proyectos innovadores y en la mejora de mis habilidades en la ingeniería de software.</p>
+            </div>
+
+            <!-- Formulario para Editar Contraseña -->
+            <div class="p-6 bg-gray-50">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Editar Contraseña</h3>
+                <form id="contactForm">
+                    <!-- Sección para cambiar la contraseña -->
+                    <div class="mb-4">
+                        <label for="editPassword" class="block text-gray-700">Nueva Contraseña</label>
+                        <input type="password" id="editPassword" class="w-full p-3 border rounded-lg" placeholder="Introduce tu nueva contraseña" required>
+                    </div>
+                    <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition duration-300">Guardar Cambios</button>
+                </form>
+            </div>
+            
+        </div>
+        <div class="mt-6">
+            <button id="backBtn" class="w-full bg-blue-600 text-white py-3 rounded-lg button">
+                Regresar a Inicio
+            </button>
+        </div>
+    </div>
+
+<script src="perfil.js"></script>
+
+</body>
+</html>

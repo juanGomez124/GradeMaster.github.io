@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Master</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.webp">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: font-size 0.3s ease, background-color 0.3s ease, color 0.3s ease, font-family 0.3s ease;
+            background-image: url('fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        .config-card {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .config-card:hover {
+            transform: scale(1.05);
+        }
+
+        .button {
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto px-4 py-10">
+        <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden config-card">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Configuración de Página</h2>
+
+                <!-- Sección para cambiar el tamaño de la letra -->
+                <div class="mb-6">
+                    <label for="fontSize" class="block text-gray-700 text-lg mb-2">Selecciona el Tamaño de la Letra</label>
+                    <select id="fontSize" class="w-full p-3 border rounded-lg">
+                        <option value="14px">Pequeño</option>
+                        <option value="16px" selected>Normal</option>
+                        <option value="18px">Grande</option>
+                        <option value="20px">Muy Grande</option>
+                    </select>
+                </div>
+
+                <!-- Sección para cambiar el modo claro/oscuro -->
+                <div class="mb-6">
+                    <label for="theme" class="block text-gray-700 text-lg mb-2">Modo Claro/Oscuro</label>
+                    <select id="theme" class="w-full p-3 border rounded-lg">
+                        <option value="light" selected>Modo Claro</option>
+                        <option value="dark">Modo Oscuro</option>
+                    </select>
+                </div>
+
+                <!-- Sección para cambiar la fuente -->
+                <div class="mb-6">
+                    <label for="fontFamily" class="block text-gray-700 text-lg mb-2">Selecciona la Fuente</label>
+                    <select id="fontFamily" class="w-full p-3 border rounded-lg">
+                        <option value="Arial" selected>Arial</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Courier New">Courier New</option>
+                    </select>
+                </div>
+
+                <!-- Sección para cambiar el espaciado entre líneas -->
+                <div class="mb-6">
+                    <label for="lineSpacing" class="block text-gray-700 text-lg mb-2">Ajustar el Espaciado entre Líneas</label>
+                    <select id="lineSpacing" class="w-full p-3 border rounded-lg">
+                        <option value="1.2" selected>Normal</option>
+                        <option value="1.5">Espaciado Grande</option>
+                        <option value="1.8">Espaciado Muy Grande</option>
+                    </select>
+                </div>
+
+                <!-- Sección para cambiar estilo de los botones -->
+                <div class="mb-6">
+                    <label for="buttonStyle" class="block text-gray-700 text-lg mb-2">Estilo del Botón</label>
+                    <select id="buttonStyle" class="w-full p-3 border rounded-lg">
+                        <option value="rounded" selected>Bordes Redondeados</option>
+                        <option value="square">Bordes Rectos</option>
+                    </select>
+                </div>
+
+                <!-- Botón para regresar a la página de inicio -->
+                <div class="mt-6">
+                    <button id="backBtn" class="w-full bg-blue-600 text-white py-3 rounded-lg button">
+                        Regresar a Inicio
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="configuracion.js"></script>
+
+</body>
+</html>

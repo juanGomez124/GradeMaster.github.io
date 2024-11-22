@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Master</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="logo.webp">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('fondo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+    }
+    .dashboard {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .dashboard img {
+      width: 50px;
+      display: block;
+      margin: auto;
+    }
+    .dashboard select, .dashboard button {
+      padding: 10px;
+      margin: 10px 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .dashboard button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .dashboard button:hover {
+      background-color: #45a049;
+    }
+    .header-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .subject-container {
+      margin-top: 15px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+    }
+    .info-section {
+      margin: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .info-section label {
+      min-width: 150px;
+    }
+    .info-section input {
+      width: 80px;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+    }
+    .subject-container {
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    summary {
+      padding: 12px 15px;
+      cursor: pointer;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+    }
+    summary:hover {
+      background-color: #e9ecef;
+    }
+    .info-section {
+      padding: 15px;
+      display: none;
+    }
+    details[open] .info-section {
+      display: block;
+    }
+    .grade-input {
+      width: 60px;
+      padding: 4px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      margin: 0 10px;
+    }
+    .export-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+    .btn:hover {
+      background-color: #45a049;
+    }
+    .total-average {
+      color: #007bff;
+      font-weight: bold;
+      float: right;
+    }
+    .profile-button {
+      background-color: #6c47ff;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+    }
+    .profile-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 200px;
+      display: none;
+      z-index: 1000;
+    }
+    .profile-menu.active {
+      display: block;
+    }
+    .profile-header {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+    }
+    .profile-name {
+      font-weight: bold;
+      color: #333;
+    }
+    .profile-email {
+      color: #666;
+      font-size: 0.9em;
+    }
+    .menu-item {
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333;
+      text-decoration: none;
+    }
+    .menu-item:hover {
+      background-color: #f5f5f5;
+    }
+    .menu-item.logout {
+      color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="dashboard">
+    <img src="logo.webp" alt="Logo">
+    <div>
+    <div class="dashboard">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <a href="inicio.html" class="back-button">
+          ← Volver
+        </a>
+        <div class="profile-button" onclick="toggleProfileMenu()">
+          <img src="149071.png" alt="User" style="width: 24px; height: 24px; border-radius: 50%;">
+          <span>admin</span>
+          <span>▼</span>
+        </div>
+      </div>
+  
+      <div class="profile-menu" id="profileMenu">
+        <div class="profile-header">
+          <div class="profile-name">Admin Usuario</div>
+          <div class="profile-email">admin@example.com</div>
+        </div>
+        <a href="perfil.html" class="menu-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          Perfil
+        </a>
+        <a href="configuracion.html" class="menu-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          Configuración
+        </a>
+        <a href="pagina.html" class="menu-item logout">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          Cerrar Sesión
+        </a>
+      </div>
+  
+  
+  
+      <!-- Login Button -->
+      <button id="login-modal-btn" class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-full hover:from-indigo-600 hover:to-purple-700 transition duration-300 hidden">
+          Iniciar Sesión
+      </button>
+  </div>
+    
+    <div class="header-controls">
+      <div>
+        <label for="career">Carrera:</label>
+        <select id="career">
+          <option value="ingenieria-informatica">Ingeniería Informática</option>
+          <option value="derecho">Derecho</option>
+        </select>
+
+        <label for="semester">Semestre:</label>
+        <select id="semester">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+      <span class="total-average">Promedio Total: <span id="total-average">0</span></span>
+    </div>
+
+    <div id="subjects-container"></div>
+    
+    <div class="export-controls">
+      <button onclick="exportGradesToTxt()">Exportar a .txt</button>
+      <button onclick="printGrades()">Imprimir Calificaciones</button>
+    </div>
+  </div> 
+   <!-- Login Modal -->
+   <div id="login-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white p-8 rounded-lg shadow-xl w-96">
+      <h2 class="text-2xl font-bold mb-6 text-center">Iniciar Sesión</h2>
+      <form id="login-form">
+        <input 
+          type="text" 
+          id="username" 
+          placeholder="Usuario" 
+          required 
+          class="w-full p-3 mb-4 border rounded"
+        >
+        <input 
+          type="password" 
+          id="password" 
+          placeholder="Contraseña" 
+          required 
+          class="w-full p-3 mb-4 border rounded"
+        >
+        <button 
+          type="submit" 
+          class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-3 rounded hover:from-indigo-600 hover:to-purple-700"
+        >
+          Iniciar Sesión
+        </button>
+
+<script src="scrips.js"></script>
+</body>
+</html>

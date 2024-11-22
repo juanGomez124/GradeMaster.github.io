@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Master</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="logo.webp">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url('fondo.jpg'); /* Ruta de la imagen en la misma carpeta */
+      background-size: cover;  /* Hace que la imagen cubra toda la pantalla */
+      background-position: center;  /* Centra la imagen */
+      background-repeat: no-repeat; /* Evita que la imagen se repita */
+    }
+    .login-container {
+      text-align: center;
+      padding: 30px;
+      border: 1px solid #ccc;
+      background-color: white;
+      border-radius: 10px;
+      width: 320px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .login-container img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: calc(100% - 22px);
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 15px 0;
+    }
+    .login-container button:hover {
+      background-color: #0056b3;
+    }
+    .login-container a {
+      color: #007bff;
+      text-decoration: none;
+      font-size: 14px;
+      display: block;
+      margin-top: 15px;
+    }
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin: 10px 0;
+      display: none;
+    }
+    .password-container {
+      position: relative;
+      width: 100%;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #666;
+      user-select: none;
+      font-size: 18px;
+    }
+    .toggle-password:hover {
+      color: #333;
+    }
+    .remember-me {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 15px 0;
+      font-size: 14px;
+    }
+    .remember-me input[type="checkbox"] {
+      margin-right: 8px;
+    }
+  </style>
+  <script>
+    function validateLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('error-message');
+      
+      if(email === 'admin' && password === 'MonaGomez124') {
+        window.location.href = "inicio.html";
+      } else {
+        errorMessage.style.display = 'block';
+      }
+    }
+
+    function togglePassword() {
+      const passwordField = document.getElementById('password');
+      const toggleIcon = document.getElementById('toggleIcon');
+      
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        toggleIcon.textContent = '👁️';
+      } else {
+        passwordField.type = 'password';
+        toggleIcon.textContent = '👁️';
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="login-container">
+    <img src="logo.webp" alt="Logo">
+    <form onsubmit="validateLogin(event)">
+      <div class="form-group">
+        <input type="text" id="email" placeholder="Correo" required>
+      </div>
+      <div class="form-group">
+        <div class="password-container">
+          <input type="password" id="password" placeholder="Contraseña" required>
+          <span class="toggle-password" id="toggleIcon" onclick="togglePassword()">👁️</span>
+        </div>
+      </div>
+      <div id="error-message" class="error-message">
+        Correo o contraseña incorrectos
+      </div>
+      <div class="remember-me">
+        <input type="checkbox" id="remember">
+        <label for="remember">Recuérdame</label>
+      </div>
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+    <a href="#">¿Olvidaste la contraseña?</a>
+  </div>
+</body>
+</html>
